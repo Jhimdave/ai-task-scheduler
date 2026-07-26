@@ -1,7 +1,5 @@
 from datetime import date
 
-from dateutil.utils import today
-
 from app.services.todoist_service import TodoistService
 from app.constants import (
     LOCKED_PROJECTS,
