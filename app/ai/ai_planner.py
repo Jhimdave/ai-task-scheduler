@@ -9,7 +9,7 @@ class AIPlanner:
         self.llm = llm
 
     def create_input(self, tasks, locked_tasks, work_start, work_end):
-        current_time = datetime.now().astimezone() + timedelta(minutes=30)
+        current_time = datetime.now(ZoneInfo("Asia/Manila")) + timedelta(minutes=30)
 
         remainder_time = current_time.minute % 10
         if remainder_time != 0:

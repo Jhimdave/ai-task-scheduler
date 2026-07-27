@@ -7,5 +7,6 @@ dependencies = [
     "python-dotenv>=1.2.2",
     "requests>=2.34.2",
     "the-new-hotness>=1.4.1",
+    "tzdata>=2026.3",
     "uvicorn>=0.51.0",
 ]
