@@ -7,6 +7,7 @@ class TodoistScheduler:
     def apply_schedule(self, ai_schedule):
         updated_tasks = []
 
+        print("Applying schedule...")
         for item in ai_schedule["schedule"]:
             result = self.todoist.update_due_datetime(
                 task_id=item["task_id"],

@@ -20,6 +20,8 @@ def run_scheduler():
             work_start="23:00",
             work_end="16:00",
         )
+        print("AI Response:")
+        print(ai_response)
         print("AI Finished")
 
         scheduler = TodoistScheduler()

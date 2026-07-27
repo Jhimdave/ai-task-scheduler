@@ -30,6 +30,8 @@ class TodoistService:
 
         response = requests.post(url, json=payload, headers=self.headers, timeout=30)
         response.raise_for_status()
+        print(response.status_code)
+        print(response.text)
         return response.json()
 
     def update_due_datetime(self, task_id: str, due_datetime: str):
