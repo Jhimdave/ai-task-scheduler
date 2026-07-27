@@ -1,5 +1,6 @@
 import json
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from app.ai.prompts import SYSTEM_PROMPT
 
@@ -8,11 +9,12 @@ class AIPlanner:
         self.llm = llm
 
     def create_input(self, tasks, locked_tasks, work_start, work_end):
-        current_time = datetime.now() + timedelta(minutes=30)
+        current_time = datetime.now(ZoneInfo("Asia/Manila")) + timedelta(minutes=30)
 
         remainder_time = current_time.minute % 10
         if remainder_time != 0:
-            current_time += timedelta(minutes=(10-remainder_time))
+            current_time += timedelta(minutes=(10 - remainder_time))
+
         current_time = current_time.replace(second=0, microsecond=0)
 
         return {
