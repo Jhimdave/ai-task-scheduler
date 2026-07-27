@@ -7,6 +7,7 @@ TODOIST_API_KEY = os.getenv("TODOIST_API_KEY")
 LLM_API_KEY = os.getenv("LLM_API_KEY")
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.groq.com/openai/v1")
 LLM_MODEL = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
+WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET")  # optional — if set, /webhook requires it
 
 if not TODOIST_API_KEY:
     raise ValueError("TODOIST_API_KEY not set")
