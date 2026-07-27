@@ -1,4 +1,6 @@
 from datetime import date
+from zoneinfo import ZoneInfo
+from datetime import datetime
 
 from app.services.todoist_service import TodoistService
 from app.constants import (
@@ -14,7 +16,7 @@ class TaskManager:
     @property
     def today_tasks(self):
 
-        today = date.today().isoformat()
+        today = self._today_manila()
 
         return[
             task for task in self.tasks
@@ -48,12 +50,15 @@ class TaskManager:
     @property
     def overdue_tasks(self):
 
-        today = date.today().isoformat()
+        today = self._today_manila()
 
         return [
             task for task in self.tasks
             if task.get('due') and task['due']['date'][:10] < today
         ]
+
+    def _today_manila(self) -> str:
+        return datetime.now(ZoneInfo("Asia/Manila")).date().isoformat()
 
     def by_project(self, project_id : str):
 

@@ -23,7 +23,14 @@ class TodoistService:
         response = requests.get(url, headers=self.headers, timeout=30)
         response.raise_for_status()
 
-        return response.json()['results']
+        data = response.json()
+
+        print("Status:", response.status_code)
+        print("Response Keys:", data.keys())
+        print("Task Count:", len(data.get("results", [])))
+        print("First Task:", data.get("results", [])[:1])
+
+        return data["results"]
 
     def update_task(self, task_id : str, payload: dict):
         url = f"{self.BASE_URL}/tasks/{task_id}"
