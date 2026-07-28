@@ -25,10 +25,10 @@ class TodoistService:
 
         data = response.json()
 
-        print("Status:", response.status_code)
-        print("Response Keys:", data.keys())
+        # print("Status:", response.status_code)
+        # print("Response Keys:", data.keys())
         print("Task Count:", len(data.get("results", [])))
-        print("First Task:", data.get("results", [])[:1])
+        # print("First Task:", data.get("results", [])[:1])
 
         return data["results"]
 
@@ -37,8 +37,8 @@ class TodoistService:
 
         response = requests.post(url, json=payload, headers=self.headers, timeout=30)
         response.raise_for_status()
-        print(response.status_code)
-        print(response.text)
+        # print(response.status_code)
+        # print(response.text)
         return response.json()
 
     def update_due_datetime(self, task_id: str, due_datetime: str):

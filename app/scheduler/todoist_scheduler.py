@@ -20,4 +20,6 @@ class TodoistScheduler:
                 "result": result
             })
 
+        print("Task Updated Count: ", len(updated_tasks))
+
         return updated_tasks
