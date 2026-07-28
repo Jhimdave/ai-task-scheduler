@@ -42,9 +42,15 @@ class TaskManager:
     @property
     def schedulable_tasks(self):
 
+        today = self._today_manila()
+
         return [
-            task for task in self.today_tasks
-            if not task['checked'] and task['project_id'] not in LOCKED_PROJECTS and not task['due'].get('is_recurring')
+            task for task in self.tasks
+            if task.get('due')
+               and not task['checked']
+               and task["due"]["date"][:10] <= today
+               and task['project_id'] not in LOCKED_PROJECTS
+               and not task['due'].get('is_recurring')
         ]
 
     @property

@@ -43,7 +43,7 @@ class AIPlanner:
 
     def schedule_task(self, tasks, locked_tasks, work_start, work_end):
         payload = self.create_input(tasks, locked_tasks, work_start, work_end)
-        # print("Input payload: ", payload)
+        print("Input payload: ", payload)
         prompt = f"""
 {SYSTEM_PROMPT}
 INPUT; {json.dumps(payload)}"""

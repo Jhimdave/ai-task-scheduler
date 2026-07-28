@@ -14,6 +14,12 @@ def _run_scheduler_safely():
     except Exception as e:
         print(f"Scheduler run failed: {e}")
 
+@app.get("/")
+async def root():
+    return {
+        "service": "AI Task Scheduler",
+        "status": "running"
+    }
 
 @app.get("/health")
 async def health():
