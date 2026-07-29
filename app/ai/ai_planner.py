@@ -43,10 +43,19 @@ class AIPlanner:
 
     def schedule_task(self, tasks, locked_tasks, work_start, work_end):
         payload = self.create_input(tasks, locked_tasks, work_start, work_end)
-        print("Input payload: ", payload)
+        # print("Input payload: ", payload)
         prompt = f"""
 {SYSTEM_PROMPT}
 INPUT; {json.dumps(payload)}"""
 
         response = self.llm.generate(prompt)
+        schedule = json.loads(response)
+
+        print("\n=== AI Schedule ===")
+        for item in schedule["schedule"]:
+            print(
+                f"Task ID: {item['task_id']} | "
+                f"Due: {item['due_datetime']}"
+            )
+
         return json.loads(response)

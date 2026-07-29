@@ -48,7 +48,7 @@ Project rules:
 
 # Result
 
-Return ONLY valid JSON.
+Return ONLY valid JSON.S
 
 {
   "schedule": [
