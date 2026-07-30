@@ -17,8 +17,8 @@ def run_scheduler():
         ai_response = planner.schedule_task(
             tasks=manager.schedulable_tasks,
             locked_tasks=manager.appointment_tasks,
-            work_start="23:00",
-            work_end="16:00",
+            work_start="10:00",
+            work_end="4:00",
         )
         # print("AI Response:")
         # print(ai_response)
@@ -34,3 +34,4 @@ def run_scheduler():
 
     except Exception:
         traceback.print_exc()
+

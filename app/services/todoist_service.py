@@ -32,14 +32,16 @@ class TodoistService:
 
         return data["results"]
 
-    def update_task(self, task_id : str, payload: dict):
+    def update_task(self, task_id: str, payload: dict):
         url = f"{self.BASE_URL}/tasks/{task_id}"
 
-        response = requests.post(url, json=payload, headers=self.headers, timeout=30)
-        response.raise_for_status()
-        # print(response.status_code)
-        # print(response.text)
-        return response.json()
+        try:
+            response = requests.post(url, json=payload, headers=self.headers, timeout=30)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            print(f"Failed to update task '{task_id}': {e}")
+            return None
 
     def update_due_datetime(self, task_id: str, due_datetime: str):
         payload = {
