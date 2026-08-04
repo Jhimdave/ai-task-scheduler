@@ -1,7 +1,7 @@
 import json
 
 from app.ai.ai_planner import AIPlanner
-from app.ai.ai_provider import GroqProvider
+from app.ai.ai_provider import AIProvider
 from app.managers.task_manager import TaskManager
 from app.scheduler.todoist_scheduler import TodoistScheduler
 
@@ -55,7 +55,7 @@ def tester():
     # -------------------------------------------------------
 
     planner = AIPlanner(
-        llm=GroqProvider()
+        llm=AIProvider("groq")
     )
 
     ai_payload = planner.create_input(

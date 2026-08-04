@@ -1,7 +1,7 @@
 from app.managers.task_manager import TaskManager
 from app.ai.ai_planner import AIPlanner
 from app.scheduler.todoist_scheduler import TodoistScheduler
-from app.ai.ai_provider import GroqProvider
+from app.ai.ai_provider import AIProvider
 import traceback
 
 def run_scheduler():
@@ -11,14 +11,14 @@ def run_scheduler():
         manager = TaskManager()
         print("TaskManager created")
 
-        planner = AIPlanner(llm=GroqProvider())
+        planner = AIPlanner(llm=AIProvider("gemini"))
         print("Planner created")
 
         ai_response = planner.schedule_task(
             tasks=manager.schedulable_tasks,
             locked_tasks=manager.appointment_tasks,
-            work_start="10:00",
-            work_end="4:00",
+            work_start="22:00",
+            work_end="14:00",
         )
         # print("AI Response:")
         # print(ai_response)
