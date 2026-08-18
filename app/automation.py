@@ -17,8 +17,8 @@ def run_scheduler():
         ai_response = planner.schedule_task(
             tasks=manager.schedulable_tasks,
             locked_tasks=manager.appointment_tasks,
-            work_start="11:40",
-            work_end="1:00",
+            work_start="22:00",
+            work_end="14:00",
         )
         # print("AI Response:")
         # print(ai_response)
