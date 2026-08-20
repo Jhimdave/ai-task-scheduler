@@ -43,7 +43,7 @@ class AIPlanner:
 
     def schedule_task(self, tasks, locked_tasks, work_start, work_end):
         payload = self.create_input(tasks, locked_tasks, work_start, work_end)
-        # print("Input payload: ", json.dumps(payload,  indent=4))
+        print("Input payload: ", json.dumps(payload,  indent=4))
 
         for item in payload["tasks"]:
             print(f"Task ID: {item['id']}  |  Name: {item['title']}")

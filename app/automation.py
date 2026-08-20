@@ -11,7 +11,7 @@ def run_scheduler():
         manager = TaskManager()
         print("TaskManager created")
 
-        planner = AIPlanner(llm=AIProvider("gemini"))
+        planner = AIPlanner(llm=AIProvider("groq"))
         print("Planner created")
 
         ai_response = planner.schedule_task(

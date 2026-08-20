@@ -28,7 +28,7 @@ class TaskManager:
 
         return [
             task for task in self.today_tasks
-            if task['project_id'] in LOCKED_PROJECTS
+            if task['project_id'] in LOCKED_PROJECTS or task['due'].get('is_recurring')
         ]
 
     @property
